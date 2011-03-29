@@ -12,10 +12,19 @@ user['state'] = 'CO'
 user['zip'] = '90210'
 user['email'] = 'email@example.com'
 
+db.flush_db()
 
-db.save_user(user)
+db.save_user_profile(user)
 
 categories = ['Recreational Activities (Outdoor)', 'Recreational Activities (Indoor)', 'Community Groups', 'Academic Groups',
 	'Spiritual Groups']
 	
 db.save_list('category',categories)
+
+print db.get_list('category')
+
+activities = ['Hiking','Biking','Climbing','Camping']
+
+db.save_list('Recreational Activities (Outdoor)', activities)
+
+print db.get_list('Recreational Activities (Outdoor)')
