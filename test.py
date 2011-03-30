@@ -27,4 +27,6 @@ activities = ['Hiking','Biking','Climbing','Camping']
 
 db.save_list('Recreational Activities (Outdoor)', activities)
 
-print db.get_list('Recreational Activities (Outdoor)')
+print 'Recreational Activities (Outdoor): ', db.get_list('Recreational Activities (Outdoor)')
+
+print db.get_user_profile('swasheck')

@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>affinity registration</title>
+		<style>
+			input {display: block;}
+		</style>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js' type='text/javascript'></script>
+		<script>
+			$(document).ready(
+				function () {
+					$('.text').focus(function () {
+						if ($(this).val() == $(this).attr("title")) {
+							$(this).val("");
+						}
+					}).blur(function () {
+						if ($(this).val() == "") {
+							$(this).val($(this).attr("title"));
+						}
+					});
+				});
+		</script>
+	</head>
+	<body>
+		<div>
+			<input type='text' class='text' name='id' value='Student ID' id='id'></input>
+			<div id='more_info'>
+				<input type='text' name='firstname' value='First Name' id='firstname' />
+				<input type='text' name='middlename' value='Middle Name' id='middlename' />
+				<input type='text' name='lastname' value='Last Name' id='lastname' />				
+				<input type='text' name='address' value='Address' id='address' />
+				<input type='text' name='address2' value='Address (Line 2)' id='address2' />
+				<input type='text' name='city' value='City' id='city' />
+				<input type='text' name='state' value='State' id='state' />
+				<input type='text' name='zip' value='Zip Code' id='zip' />
+				<input type='text' name='phone' value='Phone' id='phone' />
+				<input type='text' name='email' value='Email' id='email' />				
+				<input type='text' name='facebook' value='Facebook URL' id='facebook' />
+				<input type='text' name='twitter' value='Twitter Username' id='twitter' />			
+			</div>
+		</div>
+		<div>
+			Would you like me to get your information from our Student Information System?			
+			<br />
+			<span>Yes</span> | <span>No</span>
+		</div>
+	</body>
+</html>
+	

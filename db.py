@@ -14,6 +14,14 @@ def save_user_profile(user_data):
 def save_list(list_name, list_data):	
 	for item in list_data:
 		r.rpush(list_name.replace(' ', '.'), item)
+
+def save_user_activity(activity, user_id):
+	r.sadd('activity:%s' % activity.replace(' ','.'), user_id)
 		
 def get_list(list_name):
 	return r.lrange(list_name.replace(' ', '.'), 0, r.llen(list_name.replace(' ', '.')))
+	
+def get_user_profile(username):
+	return r.hgetall('user:profile:%s' % username)
+
+
