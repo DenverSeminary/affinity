@@ -3,26 +3,40 @@
 		<title>affinity registration</title>
 		<style>
 			input {display: block;}
+			#more_info {display: none;}
+			#data_modal {display: none;}
+			#fetch, #nofetch {cursor: pointer;}
 		</style>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js' type='text/javascript'></script>
 		<script>
 			$(document).ready(
 				function () {
-					$('.text').focus(function () {
-						if ($(this).val() == $(this).attr("title")) {
-							$(this).val("");
-						}
-					}).blur(function () {
-						if ($(this).val() == "") {
-							$(this).val($(this).attr("title"));
-						}
+					$('#id').keyup( function () {
+						$('#data_modal').css('display','block');	
 					});
+					$('#fetch').click( function () {
+						$('#more_info').slideToggle();
+						$('#data_modal').fadeOut().remove();					
+					});
+					$('input[type=text]').each(function() {
+						var default_value = this.value;
+						$(this).focus(function() {
+							if(this.value == default_value) {
+								this.value = '';
+							}
+						});
+						$(this).blur(function() {
+							if(this.value == '') {
+								this.value = default_value;
+							}
+						});
+					});	
 				});
 		</script>
 	</head>
 	<body>
 		<div>
-			<input type='text' class='text' name='id' value='Student ID' id='id'></input>
+			<input type='text' name='id' value='Student ID' id='id'></input>
 			<div id='more_info'>
 				<input type='text' name='firstname' value='First Name' id='firstname' />
 				<input type='text' name='middlename' value='Middle Name' id='middlename' />
@@ -38,10 +52,10 @@
 				<input type='text' name='twitter' value='Twitter Username' id='twitter' />			
 			</div>
 		</div>
-		<div>
+		<div id='data_modal'>
 			Would you like me to get your information from our Student Information System?			
 			<br />
-			<span>Yes</span> | <span>No</span>
+			<span id='fetch'>Yes</span> | <span id='nofetch'>No</span>
 		</div>
 	</body>
 </html>

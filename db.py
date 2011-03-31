@@ -2,7 +2,7 @@
 
 import redis
 
-r = redis.Redis(host='lindev')
+r = redis.Redis(host='localhost')
 
 def flush_db():
 	r.flush()
